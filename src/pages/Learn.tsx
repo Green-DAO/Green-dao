@@ -4,7 +4,6 @@ import { useState } from 'react';
 import styles from '../styles/Home.module.css';
 import fetch from 'isomorphic-unfetch';
 
-
 const Header = dynamic(() => import('./components/Header'), {
   ssr: false,
 })
@@ -74,7 +73,7 @@ export default function Learn({ videos }: HomeProps): JSX.Element {
   );
 }
 
-Learn.getInitialProps = async (): Promise<HomeProps> => {
+export async function getServerSideProps() {
   const playlistId = 'PL7Ine0vGWAijDlGc-nFoaCP3i5Jf_frqj';
   const response = await fetch(
     `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=${maxResults}&key=${apiKey}`
@@ -87,5 +86,5 @@ Learn.getInitialProps = async (): Promise<HomeProps> => {
     thumbnailUrl: item.snippet.thumbnails.medium.url,
   }));
 
-  return { videos };
-};
+  return { props: { videos } };
+}
