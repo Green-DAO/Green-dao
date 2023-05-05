@@ -1,7 +1,5 @@
 import React,{useState} from 'react'
 import  FileDropzone   from './components/dropzone/FileDropzone'
-import ErrorLabel from './components/labels/ErrorLabel'
-import ErrorMessage  from '@hookform/error-message'
 import { useForm } from 'react-hook-form'
 import {
   useAccount
@@ -72,13 +70,6 @@ function Editor() {
                 <AiFillDelete />
               </div>
             </div>
-            {/* <ErrorMessage
-              errors={errors}
-              name={String(i)}
-              render={({ message }) => {
-                return <ErrorLabel message={message} />
-              }}
-            /> */}
           </div>
         </div>
       )
@@ -126,13 +117,6 @@ function Editor() {
               required: 'This field is required.'
             })}
           />
-          {/* <ErrorMessage
-            errors={errors}
-            name="badgeName"
-            render={({ message }) => {
-              return <ErrorLabel message={message} />
-            }}
-          /> */}
         </div>
         <div>
           <p className="font-raj text-lg font-semibold">
@@ -144,13 +128,6 @@ function Editor() {
               required: 'This field is required.'
             })}
           />
-          {/* <ErrorMessage
-            errors={errors}
-            name="walletAddr"
-            render={({ message }) => {
-              return <ErrorLabel message={message} />
-            }}
-          /> */}
         </div>
         </div>
         <div className='flex gap-4'>
@@ -162,13 +139,6 @@ function Editor() {
               required: 'This field is required.'
             })}
           />
-          {/* <ErrorMessage
-            errors={errors}
-            name="product"
-            render={({ message }) => {
-              return <ErrorLabel message={message} />
-            }}
-          /> */}
         </div>
         <div>
           <p className="font-raj text-lg font-semibold">
